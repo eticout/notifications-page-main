@@ -1,51 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Notifications page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  Notifications 3
-
-  Mark all as read
-
-  Mark Webber reacted to your recent post My first tournament today!
-  1m ago
-
-  Angela Gray followed you
-  5m ago
-
-  Jacob Thompson has joined your group Chess Club
-  1 day ago
-
-  Rizky Hasanuddin sent you a private message
-  5 days ago
-  Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
-  I'm already having lots of fun and improving my game.
-
-  Kimberly Smith commented on your picture
-  1 week ago
-
-  Nathan Peterson reacted to your recent post 5 end-game strategies to increase your win rate
-  2 weeks ago
-
-  Anna Kim left the group Chess Club
-  2 weeks ago
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="src/style.css" type="text/css" />
+		<title>Frontend Mentor | Notifications page</title>
+	</head>
+	<body class="bg-primary-100 clr-primary-700">
+		<header>
+			<h1 class="sr-only">Frontend Mentor: Build a notifications page</h1>
+		</header>
+		<main>
+			<div class="container | mg-inline-auto">
+				<section id="notifications" class="notifications | bg-neutral-100 pd-inline-600">
+					<div class="notification__heading | pd-block-600">
+						<h2 class="notifications__title ft-700 fw-bold clr-primary-900">Notifications</h2>
+						<a
+							id="notifications__unread-counter"
+							hidden
+							class="notifications__unread-counter | mg-inline-300 bg-accent-500 clr-neutral-100 ft-200 fw-bold"
+							href="#unread-notification-1"
+							aria-live="assertive"
+						>
+						</a>
+						<button class="notifications__all-read-toggler | clr-primary-700" aria-describedby="notifications__unread-counter">
+							Mark all as read
+						</button>
+					</div>
+					<ul class="notification__list">
+						<li class="notification__item" data-type="post-reaction" data-read="false" tabindex="0">
+							<div id="unread-notification-1" class="notification__body | pd-block-400 pd-inline-400 mg-block-300">
+								<span class="notification__sr-info | sr-only">Unread notification. Click to mark as read</span>
+								<img class="notification__avatar" src="src/images/avatar-mark-webber.webp" alt="" loading="lazy" />
+								<div class="wrapper">
+									<h3 class="notification__title" data-read="false">
+										<a class="notification__user | fw-bold clr-primary-900" href="#">Mark Webber</a>
+										<span class="notification__text"> reacted to your recent post </span>
+										<a href="#" class="notification__ref | fw-bold clr-primary-700">My first tournament today!</a>
+									</h3>
+									<span class="notification__timestamp | clr-primary-600"
+										>1<span class="sr-only"> minute</span><span aria-hidden="true">m</span> ago</span
+									>
+								</div>
+							</div>
+						</li>
+						<li class="notification__item" data-type="new-follower" data-read="false" tabindex="0">
+							<div class="notification__body | pd-block-400 pd-inline-400 mg-block-300">
+								<span class="notification__sr-info | sr-only">Unread notification. Click to mark as read</span>
+								<img class="notification__avatar" src="src/images/avatar-angela-gray.webp" alt="" loading="lazy" />
+								<div class="wrapper">
+									<h3 class="notification__title" data-read="false">
+										<a class="notification__user | fw-bold clr-primary-900" href="#">Angela Gray</a>
+										<span class="notification__text"> followed you</span>
+									</h3>
+									<span class="notification__timestamp | clr-primary-600"
+										>5<span class="sr-only"> minutes</span><span aria-hidden="true">m</span> ago</span
+									>
+								</div>
+							</div>
+						</li>
+						<li class="notification__item" data-type="group-joined" data-read="false" tabindex="0">
+							<div class="notification__body | pd-block-400 pd-inline-400 mg-block-300">
+								<span class="notification__sr-info | sr-only">Unread notification. Click to mark as read</span>
+								<img class="notification__avatar" src="src/images/avatar-jacob-thompson.webp" alt="" loading="lazy" />
+								<div class="wrapper">
+									<h3 class="notification__title" data-read="false">
+										<a class="notification__user | fw-bold clr-primary-900" href="#">Jacob Thompson</a>
+										<span class="notification__text"> has joined your group </span>
+										<a href="#" class="notification__ref | fw-bold clr-primary-700">Chess Club</a>
+									</h3>
+									<span class="notification__timestamp | clr-primary-600">1 day ago</span>
+								</div>
+							</div>
+						</li>
+						<li class="notification__item" data-type="message-received" data-read="true" tabindex="0" data-modal="modal-1">
+							<div class="notification__body | pd-block-400 pd-inline-400 mg-block-300">
+								<span class="notification__sr-info | sr-only">Unread notification. Click to mark as read</span>
+								<img class="notification__avatar" src="src/images/avatar-rizky-hasanuddin.webp" alt="" loading="lazy" />
+								<div class="wrapper">
+									<h3 class="notification__title" data-read="true">
+										<a class="notification__user | fw-bold clr-primary-900" href="#">Rizky Hasanuddin</a>
+										<span class="notification__text"> sent you a private message</span>
+									</h3>
+									<span class="notification__timestamp | clr-primary-600">5 days ago</span>
+									<div class="notification__message | pd-inline-400 pd-block-400" role="button">
+										<p>
+											Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of
+											fun and improving my game.
+										</p>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="notification__item" data-type="picture-reaction" data-read="true">
+							<div class="notification__body | pd-block-400 pd-inline-400 mg-block-300">
+								<span class="notification__sr-info | sr-only">Unread notification. Click to mark as read</span>
+								<img class="notification__avatar" src="src/images/avatar-kimberly-smith.webp" alt="" loading="lazy" />
+								<div class="wrapper">
+									<h3 class="notification__title" data-read="true">
+										<a class="notification__user | fw-bold clr-primary-900" href="#">Kimberly Smith</a>
+										<span class="notification__text"> commented on your picture</span>
+									</h3>
+									<span class="notification__timestamp | clr-primary-600">1 week ago</span>
+								</div>
+							</div>
+						</li>
+						<li class="notification__item" data-type="post-reaction" data-read="true">
+							<div class="notification__body | pd-block-400 pd-inline-400 mg-block-300">
+								<img class="notification__avatar" src="src/images/avatar-nathan-peterson.webp" alt="" loading="lazy" />
+								<div class="wrapper">
+									<h3 class="notification__title" data-read="true">
+										<a class="notification__user | fw-bold clr-primary-900" href="#">Nathan Peterson</a>
+										<span class="notification__text"> reacted to your recent post </span>
+										<a href="#" class="notification__ref | fw-bold clr-primary-700">5 end-game strategies to increase your win rate</a>
+									</h3>
+									<span class="notification__timestamp | clr-primary-600">2 weeks ago</span>
+								</div>
+							</div>
+						</li>
+						<li class="notification__item" data-type="group-left" data-read="true">
+							<div class="notification__body | pd-block-400 pd-inline-400 mg-block-300">
+								<img class="notification__avatar" src="src/images/avatar-anna-kim.webp" alt="" loading="lazy" />
+								<div class="wrapper">
+									<h3 class="notification__title" data-read="true">
+										<a class="notification__user | fw-bold clr-primary-900" href="#">Anna Kim</a>
+										<span class="notification__text"> left the group </span>
+										<a href="#" class="notification__ref | fw-bold clr-primary-700">Chess Club</a>
+									</h3>
+									<span class="notification__timestamp | clr-primary-600">2 weeks ago</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<dialog id="modal-1" class="modal | pd-inline-400 pd-block-400 mg-inline-200" role="dialog" aria-modal="true">
+						<div class="modal__message">
+							<p>
+								Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and
+								improving my game.
+							</p>
+						</div>
+						<button class="button modal__close-button">Close</button>
+					</dialog>
+				</section>
+				<footer>
+					<div>
+						Challenge by
+						<a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Etienne Couturier</a>.
+					</div>
+				</footer>
+			</div>
+		</main>
+		<script type="module" src="/src/main.ts"></script>
+	</body>
 </html>
